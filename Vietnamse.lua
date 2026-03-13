@@ -1,6 +1,12 @@
 -- 1. CHỐNG CRASH CHO PC & ĐIỆN THOẠI
 if setfpscap then setfpscap(60) end 
 
+local function SafeSetProperty(obj, prop, val)
+    pcall(function()
+        sethiddenproperty(obj, prop, val)
+    end)
+end
+
 -- 2. DỌN DẸP UI CŨ (Để không bị chồng nhiều menu)
 local CoreGui = game:GetService("CoreGui")
 local function CleanUI(name)

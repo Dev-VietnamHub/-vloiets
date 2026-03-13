@@ -1,12 +1,16 @@
--- 1. CHỐNG CRASH CHO PC & ĐIỆN THOẠI
-if setfpscap then setfpscap(60) end 
+-- FIX CRASH ANTI-CHEAT & LAG
+if setfpscap then setfpscap(30) end -- Hạ FPS để máy không bị sốc khi load script
+settings().Physics.PhysicsEnvironmentalThrottle = 1
 
-local function SafeSetProperty(obj, prop, val)
-    pcall(function()
-        sethiddenproperty(obj, prop, val)
-    end)
+local function SafeWait(t)
+    task.wait(t or 0.1)
 end
 
+-- Chặn lỗi khi gọi các hàm ẩn
+local old; old = hookmetamethod(game, "__index", function(self, key)
+    if key == "SimulationRadius" then return 1000 end
+    return old(self, key)
+end)
 -- 2. DỌN DẸP UI CŨ (Để không bị chồng nhiều menu)
 local CoreGui = game:GetService("CoreGui")
 local function CleanUI(name)

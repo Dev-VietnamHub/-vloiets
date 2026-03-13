@@ -13,7 +13,7 @@ CleanUI("FixMenuMobilePC")
 local v14 = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))();
 local v15 = v14:CreateWindow({
     Title = "Vietnamse Hub [ Premium ]",-- thay tên bạn muốn đặt
-    SubTitle = "By ThienDuc",-- tên bạn
+    SubTitle = "By The Blue",-- tên bạn
     TabWidth = 160,
     Theme = "Dark",--màu
     Acrylic = false,
@@ -9090,4 +9090,5 @@ spawn(function()
         end
     end
 end);
+
 
